@@ -1,80 +1,52 @@
-name: Deploy Portfolio to GitHub Pages
+name: Deploy React Portfolio to GitHub Pages
 
 on:
   push:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
-  workflow_dispatch:  # Allows manual trigger from GitHub UI
 
 permissions:
   contents: write
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    
+    strategy:
+      matrix:
+        node-version: [18.x]
     
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0  # Fetch all history for proper versioning
     
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20.x'
+        node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        cache-dependency-path: 'package-lock.json'
     
     - name: Install Dependencies
       run: npm ci
     
-    - name: Lint Code (Optional)
-      run: npm run lint --if-present
-    
-    - name: Run Tests
-      run: npm test -- --watchAll=false --passWithNoTests
+    - name: Run Tests (if any)
+      run: npm test -- --passWithNoTests
     
     - name: Build Project
       run: npm run build
       env:
-        NODE_ENV: production
+        CI: false
         PUBLIC_URL: https://sameertiruwa1010.github.io/Portfolio
-        GENERATE_SOURCEMAP: false
-    
-    - name: Setup GitHub Pages
-      uses: actions/configure-pages@v4
-    
-    - name: Upload GitHub Pages Artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: ./build
     
     - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
-    
-    - name: Upload Build Artifact
-      uses: actions/upload-artifact@v4
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
-        name: production-build
-        path: build/
-        retention-days: 14
-        if-no-files-found: error
+        branch: gh-pages
+        folder: build
+        clean: true
+        single-commit: true
     
-    - name: Verify Deployment
-      run: |
-        echo "Deployment successful!"
-        echo "URL: https://sameertiruwa1010.github.io/Portfolio"
-        echo "Commit: ${{ github.sha }}"
+    
