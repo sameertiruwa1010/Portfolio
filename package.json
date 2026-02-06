@@ -27,23 +27,23 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
     "react-helmet-async": "^2.0.0",
-    "react-icons": "^4.11.0"
+    "react-icons": "^4.11.0",
+    "react-scripts": "5.0.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.5.1",
-    "eslint": "^8.48.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^3.0.3",
-    "gh-pages": "^5.0.0",
     "@types/node": "^20.5.7",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
-    "typescript": "^5.2.2"
+    "eslint": "^8.48.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^5.0.0",
+    "prettier": "^3.0.3",
+    "typescript": "^4.9.5"
   },
   "scripts": {
     "start": "react-scripts start",
