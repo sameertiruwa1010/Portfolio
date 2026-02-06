@@ -1,0 +1,84 @@
+{
+  "name": "devops-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "https://sameertiruwa1010.github.io/Portfolio",
+  "description": "DevOps Engineer Portfolio showcasing Kubernetes, Docker, AWS, Terraform, Jenkins, and CI/CD skills",
+  "keywords": [
+    "devops",
+    "portfolio",
+    "react",
+    "kubernetes",
+    "docker",
+    "aws",
+    "terraform",
+    "jenkins",
+    "github-actions"
+  ],
+  "author": {
+    "name": "Sameer Tiruwa",
+    "email": "sameertiruwa1010@gmail.com",
+    "url": "https://github.com/sameertiruwa1010"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sameertiruwa1010/Portfolio.git"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "react-helmet-async": "^2.0.0",
+    "react-icons": "^4.11.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.5.1",
+    "eslint": "^8.48.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.0.3",
+    "gh-pages": "^5.0.0",
+    "@types/node": "^20.5.7",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --watchAll=false --passWithNoTests",
+    "test:watch": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.{js,jsx,ts,tsx} --fix",
+    "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json}",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "dev": "npm start",
+    "ci": "npm ci && npm run build",
+    "security-check": "npm audit --audit-level=moderate"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
