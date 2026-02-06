@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer className="footer">
             <div className="container">
-                <p>Built with React & deployed on GitHub Pages • {currentYear}</p>
+                <p>Built by sameer in  React & deployed on GitHub Pages • {currentYear}</p>
                 <p className="footer-note">
                     This portfolio demonstrates DevOps skills: CI/CD, automation, and cloud infrastructure
                 </p>
