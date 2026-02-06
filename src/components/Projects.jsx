@@ -13,7 +13,7 @@ const Projects = () => {
             title: 'CI/CD Pipeline with Jenkins',
             description: 'Complete Jenkins pipeline for automated testing and deployment',
             tech: ['Jenkins', 'Docker', 'Git', 'Groovy'],
-            github: 'https://github.com/yourusername/jenkins-pipeline',
+            github: 'https://github.com/sameertiruwa1010/CI-CD-GithubAction',
             live: null
         },
         {
