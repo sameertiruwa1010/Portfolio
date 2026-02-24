@@ -20,7 +20,7 @@ const Projects = () => {
             title: 'AWS Infrastructure as Code',
             description: 'Terraform modules for deploying scalable AWS infrastructure',
             tech: ['Terraform', 'AWS', 'EC2', 'S3', 'RDS'],
-            github: 'https://github.com/yourusername/terraform-aws',
+            github: 'https://github.com/sameertiruwa1010/terraform-aws-labs',
             live: null
         },
         {
