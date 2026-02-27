@@ -6,7 +6,7 @@ const Projects = () => {
             title: 'Kubernetes Cluster Setup',
             description: 'Multi-node Kubernetes cluster with automated deployment using kubeadm',
             tech: ['Kubernetes', 'Docker', 'Bash', 'Ansible'],
-            github: 'https://github.com/yourusername/kubernetes-cluster',
+            github: 'https://github.com/sameertiruwa1010/-kubernetes-practice-labs',
             live: null
         },
         {
