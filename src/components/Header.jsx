@@ -3,22 +3,30 @@ import React, { useState, useEffect } from 'react';
 const Header = () => {
     const [activeSection, setActiveSection] = useState('home');
     const [currentTime, setCurrentTime] = useState('');
+    const [scrolled, setScrolled] = useState(false);
 
     // Update time for status bar
     useEffect(() => {
         const timer = setInterval(() => {
             const now = new Date();
-            setCurrentTime(now.toLocaleTimeString());
+            setCurrentTime(now.toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false 
+            }));
         }, 1000);
+        
         return () => clearInterval(timer);
     }, []);
 
-    // Handle scroll to update active section
+    // Handle scroll to update active section and navbar style
     useEffect(() => {
         const handleScroll = () => {
             const sections = ['home', 'skills', 'projects', 'contact'];
             const scrollPosition = window.scrollY + 100;
-
+            
+            // Update active section
             for (const section of sections) {
                 const element = document.getElementById(section);
                 if (element) {
@@ -29,6 +37,15 @@ const Header = () => {
                     }
                 }
             }
+            
+            // Update navbar style on scroll
+            setScrolled(window.scrollY > 50);
+            
+            // Update scroll progress bar
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolledWidth = (winScroll / height) * 100;
+            document.getElementById("scrollProgress")?.style.setProperty('width', scrolledWidth + '%');
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -36,7 +53,7 @@ const Header = () => {
     }, []);
 
     return (
-        <nav className="navbar">
+        <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
             <div className="container">
                 {/* Left side - Logo with terminal prompt */}
                 <div className="logo-container">
@@ -45,7 +62,7 @@ const Header = () => {
                     <div className="logo-text">
                         <span className="user">sameer</span>
                         <span className="at">@</span>
-                        <span className="host">portfolio</span>
+                        <span className="host">devops</span>
                         <span className="path">:~$</span>
                     </div>
                     <span className="cursor blinking">_</span>
@@ -56,25 +73,25 @@ const Header = () => {
                     <ul className="nav-links">
                         <li className={activeSection === 'home' ? 'active' : ''}>
                             <a href="#home">
-                                <span className="nav-prompt">></span>
+                                <span className="nav-prompt">{'>'}</span>
                                 <span className="nav-text">~/home</span>
                             </a>
                         </li>
                         <li className={activeSection === 'skills' ? 'active' : ''}>
                             <a href="#skills">
-                                <span className="nav-prompt">></span>
+                                <span className="nav-prompt">{'>'}</span>
                                 <span className="nav-text">~/skills</span>
                             </a>
                         </li>
                         <li className={activeSection === 'projects' ? 'active' : ''}>
                             <a href="#projects">
-                                <span className="nav-prompt">></span>
+                                <span className="nav-prompt">{'>'}</span>
                                 <span className="nav-text">~/projects</span>
                             </a>
                         </li>
                         <li className={activeSection === 'contact' ? 'active' : ''}>
                             <a href="#contact">
-                                <span className="nav-prompt">></span>
+                                <span className="nav-prompt">{'>'}</span>
                                 <span className="nav-text">~/contact</span>
                             </a>
                         </li>
@@ -82,13 +99,13 @@ const Header = () => {
 
                     {/* Status indicator */}
                     <div className="header-status">
-                        <span className="status-dot">●</span>
+                        <span className="status-dot"></span>
                         <span className="status-text">online</span>
                         <span className="status-time">{currentTime}</span>
                     </div>
                 </div>
             </div>
-
+            
             {/* Progress bar that shows scroll progress */}
             <div className="scroll-progress" id="scrollProgress"></div>
         </nav>

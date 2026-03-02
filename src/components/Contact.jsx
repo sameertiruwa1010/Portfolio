@@ -11,12 +11,12 @@ const Contact = () => {
                         <p>Open to DevOps, SRE, and Cloud Engineering opportunities</p>
                         <div className="contact-links">
                             <a href="mailto:your.email@example.com" className="contact-link">
-                                <i className="fas fa-envelope"></i> your.email@example.com
+                                <i className="fas fa-envelope"></i> sameertiruwa1010@gmail.com
                             </a>
                             <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="contact-link">
                                 <i className="fab fa-linkedin"></i> LinkedIn
                             </a>
-                            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="contact-link">
+                            <a href="https://github.com/sameertiruwa1010" target="_blank" rel="noopener noreferrer" className="contact-link">
                                 <i className="fab fa-github"></i> GitHub
                             </a>
                         </div>
