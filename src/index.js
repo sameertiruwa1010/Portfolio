@@ -18,3 +18,4 @@ function sendToAnalytics(metric) {
 }
 
 reportWebVitals(sendToAnalytics);
+
