@@ -145,7 +145,7 @@ const Projects = () => {
                                 </div>
                                 
                                 <div className="project-description">
-                                    <span className="desc-prompt">//</span> {project.description}
+                                    <span className="desc-prompt">{'//'}</span> {project.description}
                                 </div>
                                 
                                 <div className="project-tech-stack">
@@ -163,7 +163,7 @@ const Projects = () => {
                                         rel="noopener noreferrer"
                                         className="action-btn github"
                                     >
-                                        <span className="btn-prompt">></span> git clone
+                                        <span className="btn-prompt">&gt;</span> git clone
                                     </a>
                                     {project.live && (
                                         <a 
@@ -172,7 +172,7 @@ const Projects = () => {
                                             rel="noopener noreferrer"
                                             className="action-btn live"
                                         >
-                                            <span className="btn-prompt">></span> curl demo
+                                            <span className="btn-prompt">&gt;</span> curl demo
                                         </a>
                                     )}
                                 </div>
