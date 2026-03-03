@@ -31,7 +31,7 @@ const Projects = () => {
             image: project2,
             tech: ['jenkins', 'docker', 'groovy'],
             category: 'cicd',
-            github: 'sameertiruwa1010/CI-CD-GithubAction',
+            github: '',
             stars: 18,
             forks: 5,
             status: 'prod'
@@ -67,7 +67,7 @@ const Projects = () => {
             image: project5,
             tech: ['actions', 'yaml', 'docker'],
             category: 'cicd',
-            github: 'user/github-actions',
+            github: 'sameertiruwa1010/CI-CD-GithubAction',
             stars: 21,
             forks: 7,
             status: 'prod'
